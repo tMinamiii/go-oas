@@ -1,5 +1,7 @@
 # OpenAPI Specification v3.1.0
 
+This is OpenAPI Specification Objects
+
 https://spec.openapis.org/oas/latest.html
 
 ## Schema
