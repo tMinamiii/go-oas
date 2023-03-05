@@ -1,6 +1,6 @@
 # OpenAPI Specification v3.1.0
 
-This is OpenAPI Specification Objects
+This is OpenAPI Specification Object modules
 
 https://spec.openapis.org/oas/latest.html
 
