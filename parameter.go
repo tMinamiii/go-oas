@@ -8,10 +8,10 @@ type Parameter struct {
 }
 
 type ParameterObject struct {
-	Name            string `json:"name,omitempty" yaml:"name,omitempty"`
-	In              string `json:"in,omitempty" yaml:"in,omitempty"`
+	Name            string `json:"name" yaml:"name"`
+	In              string `json:"in" yaml:"in"`
 	Description     string `json:"description,omitempty" yaml:"description,omitempty"`
-	Required        bool   `json:"required,omitempty" yaml:"required,omitempty"`
+	Required        bool   `json:"required" yaml:"required"`
 	Deprecated      bool   `json:"deprecated,omitempty" yaml:"deprecated,omitempty"`
 	AllowEmptyValue bool   `json:"allowEmptyValue,omitempty" yaml:"allowEmptyValue,omitempty"`
 }

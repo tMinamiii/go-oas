@@ -6,7 +6,10 @@ type Link struct {
 }
 
 type LinkObject struct {
-	OperationRef string            `json:"operationRef" yaml:"operationRef"`
-	OperationID  string            `json:"operationId" yaml:"operationId"`
-	Parameters   map[string]string `json:"parameters" yaml:"parameters"`
+	OperationRef string            `json:"operationRef,omitempty" yaml:"operationRef,omitempty"`
+	OperationID  string            `json:"operationId,omitempty" yaml:"operationId,omitempty"`
+	Parameters   map[string]string `json:"parameters,omitempty" yaml:"parameters,omitempty"`
+	RequestBody  string            `json:"requestBody,omitempty" yaml:"requestBody,omitempty"`
+	Description  string            `json:"description,omitempty" yaml:"description,omitempty"`
+	Server       Server            `json:"server,omitempty" yaml:"server,omitempty"`
 }

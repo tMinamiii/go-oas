@@ -9,7 +9,7 @@ type Server struct {
 }
 
 type ServerVariable struct {
-	Enum        []string `json:"enum" yaml:"enum"`                                   // MUST NOT be empty
+	Enum        []string `json:"enum,omitempty" yaml:"enum,omitempty"`               // MUST NOT be empty
 	Default     string   `json:"default" yaml:"default"`                             // Required
 	Description string   `json:"description,omitempty" yaml:"description,omitempty"` // NULLABLE
 }

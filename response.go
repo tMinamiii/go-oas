@@ -15,16 +15,16 @@ type ResponseObject struct {
 }
 
 type MediaType struct {
-	Schema   Schema              `json:"schema" yaml:"schema"`
-	Example  string              `json:"example" yaml:"example"`
-	Examples map[string]string   `json:"examples" yaml:"examples"`
-	Encoding map[string]Encoding `json:"encoding" yaml:"encoding"`
+	Schema   Schema              `json:"schema,omitempty" yaml:"schema,omitempty"`
+	Example  string              `json:"example,omitempty" yaml:"example,omitempty"`
+	Examples map[string]string   `json:"examples,omitempty" yaml:"examples,omitempty"`
+	Encoding map[string]Encoding `json:"encoding,omitempty" yaml:"encoding,omitempty"`
 }
 
 type Encoding struct {
-	ContentType   string            `json:"contentType" yaml:"contentType"`
-	Headers       map[string]Header `json:"headers" yaml:"headers"`
-	Style         string            `json:"style" yaml:"style"`
-	Explode       bool              `json:"explode" yaml:"explode"`
-	AllowReserved bool              `json:"allowReserved" yaml:"allowReserved"`
+	ContentType   string            `json:"contentType,omitempty" yaml:"contentType,omitempty"`
+	Headers       map[string]Header `json:"headers,omitempty" yaml:"headers,omitempty"`
+	Style         string            `json:"style,omitempty" yaml:"style,omitempty"`
+	Explode       bool              `json:"explode,omitempty" yaml:"explode,omitempty"`
+	AllowReserved bool              `json:"allowReserved,omitempty" yaml:"allowReserved,omitempty"`
 }
