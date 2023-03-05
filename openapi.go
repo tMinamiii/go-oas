@@ -1,50 +1,24 @@
 package test2openapi
 
-type Example struct {
-	*ExampleObject
-	*ReferenceObject
-}
-
-type RequestBody struct {
-	*RequestBodyObject
-	*ReferenceObject
-}
-
-type SecurityScheme struct {
-	*SecuritySchemeObject
-	*ReferenceObject
-}
-
-type Link struct {
-	*LinkObject
-	*ReferenceObject
-}
-
-type Callback struct {
-	*CallbackObject
-	*ReferenceObject
-}
-
 type OpenAPI[Resp Response, Param Parameter] struct {
-	OpenAPIVersion string              `yaml:"openapi"`
-	Info           Info                `yaml:"info,omitempty"`
-	Servers        Servers             `yaml:"servers,omitempty"`
-	Paths          Paths               `yaml:"paths,omitempty"`
-	Webhooks       map[string]PathItem `yaml:"webhooks,omitempty"`
-	Components     Components          `yaml:"components,omitempty"`
-	Security       SecurityRequirement `yaml:"security,omitempty"`
+	OpenAPIVersion    string                `json:"openapi" yaml:"openapi"`
+	Info              Info                  `json:"info,omitempty" yaml:"info,omitempty"`
+	JSONSchemaDialect string                `json:"jsonSchemaDialect" yaml:"jsonSchemaDialect"`
+	Servers           Servers               `json:"servers,omitempty" yaml:"servers,omitempty"`
+	Paths             Paths                 `json:"paths,omitempty" yaml:"paths,omitempty"`
+	Webhooks          map[string]PathItem   `json:"webhooks,omitempty" yaml:"webhooks,omitempty"`
+	Components        Components            `json:"components,omitempty" yaml:"components,omitempty"`
+	Security          SecurityRequirement   `json:"security,omitempty" yaml:"security,omitempty"`
+	Tags              Tags                  `json:"tags" yaml:"tags"`
+	ExternalDocs      ExternalDocumentation `json:"externalDocs" yaml:"externalDocs"`
 }
-
-type ReferenceObject struct{}
-type ExampleObject struct{}
-type CallbackObject struct{}
-type SecuritySchemeObject struct{}
-type RequestBodyObject struct{}
-
-type ExternalDocumentation struct{}
-
-type Components []Component
-
-type Component struct{}
 
 type SecurityRequirement map[string][]string
+
+type Tags []Tag
+
+type Tag struct {
+	Name         string
+	Description  string
+	ExternalDocs ExternalDocumentation
+}

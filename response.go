@@ -8,20 +8,29 @@ type Response struct {
 type Responses map[string]Response
 
 type ResponseObject struct {
-	Description string                `yaml:"description,omitempty"`
-	Headers     map[string]Header     `yaml:"headers,omitempty"`
-	Content     map[string]MediaType  `yaml:"content,omitempty"`
-	Links       map[string]LinkObject `yaml:"links,omitempty"`
+	Description string                `json:"description,omitempty" yaml:"description,omitempty"`
+	Headers     map[string]Header     `json:"headers,omitempty" yaml:"headers,omitempty"`
+	Content     map[string]MediaType  `json:"content,omitempty" yaml:"content,omitempty"`
+	Links       map[string]LinkObject `json:"links,omitempty" yaml:"links,omitempty"`
 }
 
-type Header struct {
-	*HeaderObject
-	*ReferenceObject
+type MediaType struct {
+	Schema   Schema
+	Example  string
+	Examples map[string]string
+	encoding map[string]Encoding
 }
 
-type Headers map[string]Header
+type Encoding struct {
+	ContentType   string
+	Headers       map[string]Header
+	Style         string
+	explode       bool
+	allowReserved bool
+}
 
-type HeaderObject struct{}
-
-type MediaType struct{}
-type LinkObject struct{}
+type LinkObject struct {
+	OperationRef string
+	OperationID  string
+	Parameters   map[string]string
+}
