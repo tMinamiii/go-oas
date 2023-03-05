@@ -1,4 +1,4 @@
-package test2openapi
+package oas
 
 // OpenAPI represents
 // https://spec.openapis.org/oas/v3.1.0#openapi-object
@@ -505,10 +505,17 @@ type LicenseObject struct {
 // api_key: []
 type SecurityRequirementObject map[string][]string
 
+// TagObject represents
+// https://spec.openapis.org/oas/latest.html#tag-object
+//
+// Field Name	Type							Description
+// name			string							REQUIRED. The name of the tag.
+// description	string							A description for the tag. CommonMark syntax MAY be used for rich text representation.
+// externalDocs	External Documentation Object	Additional external documentation for this tag.
 type TagObject struct {
 	Name         string            `json:"name" yaml:"name"`
-	Description  string            `json:"description" yaml:"description"`
-	ExternalDocs ExternalDocObject `json:"externalDocs" yaml:"externalDocs"`
+	Description  string            `json:"description,omitempty" yaml:"description,omitempty"`
+	ExternalDocs ExternalDocObject `json:"externalDocs,omitempty" yaml:"externalDocs,omitempty"`
 }
 
 // ReferenceObject represents
@@ -524,7 +531,7 @@ type ReferenceObject struct {
 	Description string `json:"description,omitempty" yaml:"description,omitempty"`
 }
 
-// ExternalDocObject comment...
+// ExternalDocObject represents
 // https://spec.openapis.org/oas/v3.1.0#external-documentation-object
 //
 // Field Name	Type	Description
