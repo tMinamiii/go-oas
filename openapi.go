@@ -18,7 +18,7 @@ type SecurityRequirement map[string][]string
 type Tags []Tag
 
 type Tag struct {
-	Name         string
-	Description  string
-	ExternalDocs ExternalDocumentation
+	Name         string                `json:"name" yaml:"name"`
+	Description  string                `json:"description" yaml:"description"`
+	ExternalDocs ExternalDocumentation `json:"externalDocs" yaml:"externalDocs"`
 }

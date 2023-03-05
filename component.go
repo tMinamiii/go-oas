@@ -28,11 +28,10 @@ type RequestBody struct {
 	*ReferenceObject
 }
 
-type RequestBodyObject struct{}
-
-type Link struct {
-	*LinkObject
-	*ReferenceObject
+type RequestBodyObject struct {
+	Description string               `json:"description" yaml:"description"`
+	Content     map[string]MediaType `json:"content" yaml:"content"`
+	Required    bool                 `json:"required" yaml:"required"`
 }
 
 type Callback struct {
@@ -48,9 +47,9 @@ type Example struct {
 }
 
 type ExampleObject struct {
-	Description string
-	Content     map[string]MediaType
-	Required    bool
+	Description string               `json:"description" yaml:"description"`
+	Content     map[string]MediaType `json:"content" yaml:"content"`
+	Required    bool                 `json:"required" yaml:"required"`
 }
 
 type SecurityScheme struct {
@@ -59,26 +58,26 @@ type SecurityScheme struct {
 }
 
 type SecuritySchemeObject struct {
-	Type             string
-	Description      string
-	Name             string
-	In               string
-	Scheme           string
-	BearerFormat     string
-	Flows            OAuthFlows
-	OpenIDConnectURL string
+	Type             string     `json:"type" yaml:"type"`
+	Description      string     `json:"description" yaml:"description"`
+	Name             string     `json:"name" yaml:"name"`
+	In               string     `json:"in" yaml:"in"`
+	Scheme           string     `json:"scheme" yaml:"scheme"`
+	BearerFormat     string     `json:"bearerFormat" yaml:"bearerFormat"`
+	Flows            OAuthFlows `json:"flows" yaml:"flows"`
+	OpenIDConnectURL string     `json:"openIdConnectUrl" yaml:"openIdConnectUrl"`
 }
 
 type OAuthFlows struct {
-	Implicit          OAuthFlow
-	Password          OAuthFlow
-	ClientCredentials OAuthFlow
-	AuthorizationCode OAuthFlow
+	Implicit          *OAuthFlow `json:"implicit" yaml:"implicit"`
+	Password          *OAuthFlow `json:"password" yaml:"password"`
+	ClientCredentials *OAuthFlow `json:"clientCredentials" yaml:"clientCredentials"`
+	AuthorizationCode *OAuthFlow `json:"authorizationCode" yaml:"authorizationCode"`
 }
 
 type OAuthFlow struct {
-	AuthorizationURL string
-	TokenURL         string
-	RefreshURL       string
-	Scopes           map[string]string
+	AuthorizationURL string            `json:"authorizationUrl" yaml:"authorizationUrl"`
+	TokenURL         string            `json:"tokenUrl" yaml:"tokenUrl"`
+	RefreshURL       string            `json:"refreshUrl" yaml:"refreshUrl"`
+	Scopes           map[string]string `json:"scopes" yaml:"scopes"`
 }

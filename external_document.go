@@ -1,6 +1,6 @@
 package test2openapi
 
 type ExternalDocumentation struct {
-	Description string
-	URL         string
+	Description string `json:"description" json:"description"`
+	URL         string `json:"url" yaml:"url"`
 }

@@ -8,29 +8,23 @@ type Response struct {
 type Responses map[string]Response
 
 type ResponseObject struct {
-	Description string                `json:"description,omitempty" yaml:"description,omitempty"`
-	Headers     map[string]Header     `json:"headers,omitempty" yaml:"headers,omitempty"`
-	Content     map[string]MediaType  `json:"content,omitempty" yaml:"content,omitempty"`
-	Links       map[string]LinkObject `json:"links,omitempty" yaml:"links,omitempty"`
+	Description string               `json:"description,omitempty" yaml:"description,omitempty"`
+	Headers     map[string]Header    `json:"headers,omitempty" yaml:"headers,omitempty"`
+	Content     map[string]MediaType `json:"content,omitempty" yaml:"content,omitempty"`
+	Links       map[string]Link      `json:"links,omitempty" yaml:"links,omitempty"`
 }
 
 type MediaType struct {
-	Schema   Schema
-	Example  string
-	Examples map[string]string
-	encoding map[string]Encoding
+	Schema   Schema              `json:"schema" yaml:"schema"`
+	Example  string              `json:"example" yaml:"example"`
+	Examples map[string]string   `json:"examples" yaml:"examples"`
+	Encoding map[string]Encoding `json:"encoding" yaml:"encoding"`
 }
 
 type Encoding struct {
-	ContentType   string
-	Headers       map[string]Header
-	Style         string
-	explode       bool
-	allowReserved bool
-}
-
-type LinkObject struct {
-	OperationRef string
-	OperationID  string
-	Parameters   map[string]string
+	ContentType   string            `json:"contentType" yaml:"contentType"`
+	Headers       map[string]Header `json:"headers" yaml:"headers"`
+	Style         string            `json:"style" yaml:"style"`
+	Explode       bool              `json:"explode" yaml:"explode"`
+	AllowReserved bool              `json:"allowReserved" yaml:"allowReserved"`
 }
