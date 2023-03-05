@@ -1,0 +1,4 @@
+Release
+<% pull_requests.each do |pr| -%>
+<%=  "- [ ] ##{pr.pr.number} #{pr.pr.title}" + pr.mention %>
+<% end -%>
